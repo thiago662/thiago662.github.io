@@ -1,5 +1,6 @@
 ---
 import Layout from '../layouts/Layout.astro';
+import ThemeToggle from '../components/ThemeToggle.astro';
 import { resume } from '../data/resume';
 import { fetchFeaturedRepos } from '../lib/github';
 
@@ -7,199 +8,352 @@ const featuredRepos = await fetchFeaturedRepos();
 ---
 
 <Layout title={`${resume.name} — ${resume.title}`} description={resume.summary}>
-  <header class="hero">
-    <h1>{resume.name}</h1>
-    <p class="title">{resume.title}</p>
-    <p class="location">{resume.location}</p>
-    <nav class="contact-links">
-      <a href={`mailto:${resume.contact.email}`}>Email</a>
-      <a href={resume.contact.linkedin} target="_blank" rel="noopener">LinkedIn</a>
-      <a href={resume.contact.github} target="_blank" rel="noopener">GitHub</a>
-    </nav>
-    <div class="downloads">
-      <a href="/curriculo.pdf" download>Baixar currículo (PDF)</a>
-      <a href="/curriculo.docx" download>Baixar currículo (Word)</a>
-    </div>
-  </header>
+  <div class="page">
+    <header class="hero">
+      <div class="hero-top">
+        <span class="spec-label">FOLHA 01 / REV. {new Date().getFullYear()}</span>
+        <ThemeToggle />
+      </div>
 
-  <main>
-    <section id="resumo">
-      <h2>Resumo</h2>
-      <p>{resume.summary}</p>
-    </section>
+      <h1>{resume.name}</h1>
+      <p class="hero-title">{resume.title}</p>
+      <p class="spec-label hero-location">{resume.location}</p>
 
-    <section id="experiencia">
-      <h2>Experiência Profissional</h2>
-      {resume.experience.map((job) => (
-        <article class="job">
-          <h3>{job.company}{job.companyDetail ? ` — ${job.companyDetail}` : ''}</h3>
-          {job.totalPeriod && <p class="period">{job.totalPeriod}</p>}
-          <ul class="roles">
-            {job.roles.map((role) => (
-              <li><strong>{role.title}</strong> — {role.period}</li>
-            ))}
-          </ul>
-          <ul class="highlights">
-            {job.highlights.map((highlight) => (
-              <li>{highlight}</li>
-            ))}
-          </ul>
-        </article>
-      ))}
-    </section>
+      <nav class="tag-row">
+        <a class="tag" href={`mailto:${resume.contact.email}`}>Email</a>
+        <a class="tag" href={resume.contact.linkedin} target="_blank" rel="noopener">LinkedIn</a>
+        <a class="tag" href={resume.contact.github} target="_blank" rel="noopener">GitHub</a>
+      </nav>
 
-    <section id="formacao">
-      <h2>Formação Acadêmica</h2>
-      <ul>
-        {resume.education.map((item) => (
-          <li><strong>{item.title}</strong> — {item.institution} ({item.period})</li>
-        ))}
-      </ul>
-    </section>
+      <div class="tag-row">
+        <a class="tag tag-accent" href="/curriculo.pdf" download>Baixar currículo (PDF)</a>
+        <a class="tag" href="/curriculo.docx" download>Baixar currículo (Word)</a>
+      </div>
+    </header>
 
-    <section id="idiomas">
-      <h2>Idiomas</h2>
-      <ul>
-        {resume.languages.map((lang) => (
-          <li><strong>{lang.name}:</strong> {lang.level}</li>
-        ))}
-      </ul>
-    </section>
+    <main>
+      <section class="block" id="resumo">
+        <h2><span class="section-number">01</span> Resumo</h2>
+        <p class="prose">{resume.summary}</p>
+      </section>
 
-    <section id="skills">
-      <h2>Habilidades Técnicas</h2>
-      <dl>
-        {Object.entries(resume.skills).map(([category, items]) => (
-          <>
-            <dt>{category}</dt>
-            <dd>{items.join(', ')}</dd>
-          </>
-        ))}
-      </dl>
-    </section>
-
-    <section id="projetos">
-      <h2>Projetos</h2>
-      {featuredRepos.length === 0 ? (
-        <p class="empty">
-          Nenhum repositório com a topic <code>portfolio</code> encontrado — adicione essa topic
-          nos repositórios que quer destacar aqui (GitHub → repositório → engrenagem ao lado de
-          "About" → Topics).
-        </p>
-      ) : (
-        <ul class="repos">
-          {featuredRepos.map((repo) => (
-            <li>
-              <a href={repo.url} target="_blank" rel="noopener">{repo.name}</a>
-              {repo.description && <p>{repo.description}</p>}
-              <p class="meta">
-                {repo.language && <span>{repo.language}</span>}
-                <span>★ {repo.stars}</span>
-                {repo.homepage && (
-                  <a href={repo.homepage} target="_blank" rel="noopener">Ver ao vivo</a>
-                )}
-              </p>
+      <section class="block" id="experiencia">
+        <h2><span class="section-number">02</span> Experiência Profissional</h2>
+        <ol class="timeline">
+          {resume.experience.map((job) => (
+            <li class="timeline-item">
+              <article class="sheet corner-marks job-card">
+                <h3>{job.company}{job.companyDetail ? ` — ${job.companyDetail}` : ''}</h3>
+                {job.totalPeriod && <p class="spec-label">{job.totalPeriod}</p>}
+                <ul class="roles">
+                  {job.roles.map((role) => (
+                    <li><span class="role-title">{role.title}</span><span class="spec-label"> — {role.period}</span></li>
+                  ))}
+                </ul>
+                <ul class="highlights">
+                  {job.highlights.map((highlight) => (
+                    <li>{highlight}</li>
+                  ))}
+                </ul>
+              </article>
             </li>
           ))}
-        </ul>
-      )}
-    </section>
+        </ol>
+      </section>
 
-    <section id="contato">
-      <h2>Contato</h2>
-      <ul>
-        <li><a href={`mailto:${resume.contact.email}`}>{resume.contact.email}</a></li>
-        <li><a href={resume.contact.linkedin} target="_blank" rel="noopener">LinkedIn</a></li>
-        <li><a href={resume.contact.github} target="_blank" rel="noopener">GitHub</a></li>
-      </ul>
-    </section>
-  </main>
+      <section class="block" id="skills">
+        <h2><span class="section-number">03</span> Habilidades Técnicas</h2>
+        <dl class="spec-sheet">
+          {Object.entries(resume.skills).map(([category, items]) => (
+            <>
+              <dt>{category}</dt>
+              <dd>{items.join(', ')}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+
+      <section class="block" id="projetos">
+        <h2><span class="section-number">04</span> Projetos</h2>
+        {featuredRepos.length === 0 ? (
+          <p class="prose muted">
+            Nenhum repositório com a topic <code>starred</code> encontrado — adicione essa topic
+            nos repositórios que quer destacar (GitHub → repositório → engrenagem ao lado de
+            "About" → Topics).
+          </p>
+        ) : (
+          <ul class="repo-grid">
+            {featuredRepos.map((repo) => (
+              <li class="sheet corner-marks repo-card">
+                <a class="repo-name" href={repo.url} target="_blank" rel="noopener">{repo.name}</a>
+                {repo.description && <p class="prose">{repo.description}</p>}
+                <p class="tag-row">
+                  {repo.language && <span class="spec-label">{repo.language}</span>}
+                  <span class="spec-label">★ {repo.stars}</span>
+                  {repo.homepage && (
+                    <a class="tag tag-accent" href={repo.homepage} target="_blank" rel="noopener">Ver ao vivo</a>
+                  )}
+                </p>
+              </li>
+            ))}
+          </ul>
+        )}
+      </section>
+
+      <section class="block" id="formacao-idiomas">
+        <h2><span class="section-number">05</span> Formação &amp; Idiomas</h2>
+        <dl class="spec-sheet">
+          {resume.education.map((item) => (
+            <>
+              <dt>{item.period}</dt>
+              <dd>{item.title} — {item.institution}</dd>
+            </>
+          ))}
+          {resume.languages.map((lang) => (
+            <>
+              <dt>{lang.name}</dt>
+              <dd>{lang.level}</dd>
+            </>
+          ))}
+        </dl>
+      </section>
+
+      <section class="block" id="contato">
+        <h2><span class="section-number">06</span> Contato</h2>
+        <div class="sheet corner-marks title-block">
+          <dl class="spec-sheet">
+            <dt>Nome</dt>
+            <dd>{resume.name}</dd>
+            <dt>Cargo</dt>
+            <dd>{resume.title}</dd>
+            <dt>Local</dt>
+            <dd>{resume.location}</dd>
+            <dt>Email</dt>
+            <dd><a href={`mailto:${resume.contact.email}`}>{resume.contact.email}</a></dd>
+            <dt>LinkedIn</dt>
+            <dd><a href={resume.contact.linkedin} target="_blank" rel="noopener">{resume.contact.linkedin}</a></dd>
+            <dt>GitHub</dt>
+            <dd><a href={resume.contact.github} target="_blank" rel="noopener">{resume.contact.github}</a></dd>
+          </dl>
+        </div>
+      </section>
+    </main>
+  </div>
 </Layout>
 
 <style>
-  :root {
-    color-scheme: light dark;
-  }
-
-  body {
-    font-family: system-ui, sans-serif;
-    max-width: 48rem;
+  .page {
+    max-width: 52rem;
     margin: 0 auto;
-    padding: 2rem 1.5rem 4rem;
-    line-height: 1.6;
+    padding: var(--space-3) var(--space-3) var(--space-5);
   }
 
+  /* ---------- hero ---------- */
   .hero {
-    margin-bottom: 3rem;
+    padding-bottom: var(--space-4);
+    margin-bottom: var(--space-4);
+    border-bottom: 1px solid var(--line);
+  }
+
+  .hero-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: var(--space-3);
   }
 
   .hero h1 {
-    margin-bottom: 0.25rem;
+    font-size: clamp(2rem, 5vw, 2.75rem);
   }
 
-  .title,
-  .location {
-    margin: 0.15rem 0;
-    opacity: 0.8;
+  .hero-title {
+    margin: var(--space-1) 0 0;
+    font-size: 1.1rem;
+    color: var(--ink-muted);
   }
 
-  .contact-links,
-  .downloads {
+  .hero-location {
+    margin: 0.35rem 0 var(--space-3);
+  }
+
+  .tag-row {
     display: flex;
-    gap: 1rem;
-    margin-top: 1rem;
     flex-wrap: wrap;
+    gap: 0.6rem;
+    margin-top: 0.6rem;
   }
 
-  section {
-    margin-bottom: 2.5rem;
+  .tag {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    text-decoration: none;
+    padding: 0.4rem 0.75rem;
+    border: 1px solid var(--line);
+    border-radius: var(--radius);
+    color: var(--ink);
   }
 
-  .job {
-    margin-bottom: 1.5rem;
+  .tag:hover {
+    border-color: var(--line-strong);
+    color: var(--line-strong);
   }
 
-  .period {
-    opacity: 0.7;
-    font-size: 0.9em;
-    margin-top: -0.5rem;
+  .tag-accent {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: var(--accent-ink);
   }
 
-  dl {
-    display: grid;
-    grid-template-columns: auto 1fr;
-    gap: 0.5rem 1rem;
+  .tag-accent:hover {
+    color: var(--accent-ink);
+    opacity: 0.85;
   }
 
-  dt {
+  /* ---------- seções ---------- */
+  .block {
+    margin-bottom: var(--space-5);
+  }
+
+  .block h2 {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    font-size: 1.3rem;
+    padding-bottom: var(--space-1);
+    border-bottom: 1px solid var(--line);
+    margin-bottom: var(--space-3);
+  }
+
+  .prose {
+    max-width: 42rem;
+  }
+
+  .muted {
+    color: var(--ink-muted);
+  }
+
+  /* ---------- cartões tipo prancheta ---------- */
+  .sheet {
+    padding: var(--space-3);
+  }
+
+  .job-card,
+  .repo-card {
+    margin-bottom: 0;
+  }
+
+  .job-card h3 {
+    font-size: 1.05rem;
+  }
+
+  .roles {
+    list-style: none;
+    padding: 0;
+    margin: var(--space-1) 0 var(--space-2);
+  }
+
+  .roles li {
+    padding: 0.15rem 0;
+  }
+
+  .role-title {
     font-weight: 600;
   }
 
-  dd {
+  .highlights {
+    padding-left: 1.1rem;
     margin: 0;
   }
 
-  .repos {
+  .highlights li {
+    margin-bottom: 0.5rem;
+  }
+
+  /* ---------- timeline ---------- */
+  .timeline {
     list-style: none;
     padding: 0;
+    margin: 0;
+    position: relative;
+  }
+
+  .timeline-item {
+    position: relative;
+    padding-left: 1.5rem;
+    margin-bottom: var(--space-3);
+    border-left: 2px solid var(--line);
+  }
+
+  .timeline-item::before {
+    content: '';
+    position: absolute;
+    left: -6px;
+    top: 1.5rem;
+    width: 10px;
+    height: 10px;
+    background: var(--bg);
+    border: 2px solid var(--line-strong);
+    border-radius: 50%;
+  }
+
+  /* ---------- planilha de especificação (dl) ---------- */
+  .spec-sheet {
     display: grid;
-    gap: 1rem;
+    grid-template-columns: auto 1fr;
+    gap: 0.5rem 1.5rem;
+    margin: 0;
   }
 
-  .repos li {
-    border: 1px solid currentColor;
-    border-radius: 0.5rem;
-    padding: 1rem;
+  .spec-sheet dt {
+    font-family: var(--font-mono);
+    font-size: 0.8rem;
+    letter-spacing: 0.04em;
+    color: var(--ink-muted);
+    white-space: nowrap;
   }
 
-  .meta {
-    display: flex;
-    gap: 1rem;
-    opacity: 0.7;
-    font-size: 0.85em;
+  .spec-sheet dd {
+    margin: 0;
+    overflow-wrap: anywhere;
   }
 
-  .empty {
-    opacity: 0.7;
+  @media (max-width: 540px) {
+    .spec-sheet {
+      grid-template-columns: 1fr;
+      gap: 0.15rem 0;
+    }
+
+    .spec-sheet dt {
+      white-space: normal;
+      margin-top: 0.7rem;
+    }
+
+    .spec-sheet dt:first-child {
+      margin-top: 0;
+    }
+  }
+
+  /* ---------- projetos ---------- */
+  .repo-grid {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+    display: grid;
+    gap: var(--space-2);
+  }
+
+  .repo-name {
+    font-weight: 700;
+    text-decoration: none;
+    font-size: 1.05rem;
+  }
+
+  .repo-name:hover {
+    color: var(--line-strong);
+  }
+
+  /* ---------- title block (contato) ---------- */
+  .title-block {
+    border-color: var(--line-strong);
   }
 </style>

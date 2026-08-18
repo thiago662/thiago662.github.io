@@ -1,6 +1,6 @@
 # Thiago Gonçalves Santos
 
-Desenvolvedor Full Stack Sênior
+Desenvolvedor Full Stack Sênior (Especialista em Back-end)
 
 thiago1santos12@gmail.com | [linkedin.com/in/thiago-gonçalves-santos-730a74199](https://www.linkedin.com/in/thiago-gon%C3%A7alves-santos-730a74199/) | [github.com/thiago662](https://github.com/thiago662) | Itu, SP
 
@@ -48,5 +48,6 @@ mar/2026 – atual · 6 meses · Itu, SP
 - **Banco de dados:** PostgreSQL, SQL
 - **Integrações:** APIs REST, filas, web scraping, leitura de e-mails
 - **Engenharia de software:** POO, SOLID, Clean Code, microsserviços, padrões de projeto (MVC, CQRS, Services, Repositories), SDD (Spec Driven Development), programação assistida por IA com harness
+- **IA:** Claude, GPT, Gemini, Lovable
 - **Metodologia:** Scrum, Kanban
 - **Versionamento:** Git, GitFlow, Trunk-Based Development, GitHub Flow

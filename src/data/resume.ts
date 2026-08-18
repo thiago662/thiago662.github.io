@@ -19,7 +19,7 @@ export interface Education {
 
 export const resume = {
   name: 'Thiago Gonçalves Santos',
-  title: 'Desenvolvedor Full Stack Sênior',
+  title: 'Desenvolvedor Full Stack Sênior (Especialista em Back-end)',
   location: 'Itu, SP',
   contact: {
     email: 'thiago1santos12@gmail.com',
@@ -27,16 +27,16 @@ export const resume = {
     github: 'https://github.com/thiago662',
   },
   summary:
-    'Desenvolvedor full stack sênior com 5 anos e 8 meses de experiência na DealerSpace (ex-Followize), atuando com PHP, Laravel, Angular e integrações de sistemas, com liderança técnica da squad de integrações da empresa. Atualmente presta serviços como PJ na Hypergestor (setor de CRM), via CNPJ próprio (Tgs Code Solutions). Está aberto a novas oportunidades, inclusive fora do setor de CRM automotivo, aplicando a mesma base sólida de arquitetura, integrações e boas práticas de engenharia em outros mercados.',
+    'Desenvolvedor full stack sênior com 5 anos e 8 meses de experiência na DealerSpace (ex-Followize), atuando com PHP, Laravel, Angular e integrações de sistemas, com liderança técnica da squad de integrações da empresa. Atualmente presta serviços como PJ para cliente do setor de CRM sob acordo de confidencialidade, via CNPJ próprio (Tgs Code Solutions). Está aberto a novas oportunidades, inclusive fora do setor de CRM automotivo, aplicando a mesma base sólida de arquitetura, integrações e boas práticas de engenharia em outros mercados.',
   experience: [
     {
-      company: 'Hypergestor',
+      company: 'Cliente sob NDA',
       companyDetail: 'PJ, via Tgs Code Solutions',
       totalPeriod: 'mar/2026 – atual · 6 meses',
       roles: [{ title: 'Desenvolvedor Full Stack Sênior', period: 'mar/2026 – atual' }],
       highlights: [
         'Sou um dos dois desenvolvedores de fato no time (restante formado por vibe coders); fui introduzido por um dev sênior a desenvolvimento assistido por IA com harness e SDD (Spec Driven Development), priorizando produtividade nas entregas sem abrir mão de controle sobre o código — abordagem distinta de vibe coding.',
-        'Atuo em dois projetos: um microsserviço novo de integração com DMS (Dealer Management System) do setor automotivo, em TypeScript, JavaScript, Angular e PostgreSQL; e a criação do módulo de pós-vendas do CRM, em PHP, Laravel, Filament e PostgreSQL, comunicando-se com as integrações via API.',
+        'Atuo em dois projetos: um microsserviço novo de integração, em TypeScript, JavaScript, Angular e PostgreSQL; e um módulo novo de sistema web, em PHP, Laravel, Filament e PostgreSQL, comunicando-se com integrações via API.',
       ],
     },
     {
@@ -79,6 +79,7 @@ export const resume = {
       'SDD (Spec Driven Development)',
       'programação assistida por IA com harness',
     ],
+    IA: ['Claude', 'GPT', 'Gemini', 'Lovable'],
     Metodologia: ['Scrum', 'Kanban'],
     Versionamento: ['Git', 'GitFlow', 'Trunk-Based Development', 'GitHub Flow'],
   },

@@ -8,7 +8,7 @@ export interface FeaturedRepo {
 }
 
 const GITHUB_USER = 'thiago662';
-const FEATURE_TOPIC = 'portfolio';
+const FEATURE_TOPIC = 'starred';
 
 interface GitHubSearchItem {
   name: string;
