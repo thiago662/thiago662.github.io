@@ -12,10 +12,6 @@ Sou um desenvolvedor brasileiro, comecei minha jornada de programação em 2017 
 
 Utilizo meu github para compartilhar meu conhecimento, desenvolvimento e projetos criativos, espero ajudar muitas pessoas com essas coisas e aprender novos conhecimentos.
 
-<a href="https://github.com/thiago662" title="Perfil de thiago662">
-  <img src="./github-metrics.svg" alt="Métricas do GitHub" />
-</a>
-
 ![PHP](https://img.shields.io/badge/-PHP-333333?style=flat&logo=PHP)
 ![Laravel](https://img.shields.io/badge/-Laravel-333333?style=flat&logo=Laravel)
 ![Postgresql](https://img.shields.io/badge/-Postgresql-333333?style=flat&logo=Postgresql)
