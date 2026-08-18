@@ -1,34 +1,38 @@
-#### In English
-### Hi, I am Thiago Gonçalves Santos aka on github thiago662 👍
+# thiago662.github.io
 
-I am a Brazilian developer, I started my programming journey in 2017 when I started studying in high school with a technical IT course. After finishing high school I started college in 2020, in the same year in October I got my first job in the area, I finish college in 2022 and now I work at the same company Followize.
+Portfólio pessoal de **Thiago Gonçalves Santos**, construído em [Astro](https://astro.build).
 
-I use my github to share my knowledge, development and creative projects, I hope to help many people with these things and learn new knowledge.
+🌐 **Site:** [thiago662.github.io](https://thiago662.github.io)
+📄 **Currículo:** [PDF](./public/curriculo.pdf) · [texto corrido](./curriculo.md)
 
-#### Em Português
-### Olá, sou Thiago Gonçalves Santos, também conhecido como no github thiago662 👍
+## Stack
 
-Sou um desenvolvedor brasileiro, comecei minha jornada de programação em 2017 quando comecei a estudar no ensino médio com um curso técnico em informática. Após terminar o ensino médio comecei a faculdade em 2020, no mesmo ano em outubro consegui meu primeiro emprego na área, terminei a faculdade em 2022 e agora trabalho na mesma empresa Followize.
+Astro · TypeScript
 
-Utilizo meu github para compartilhar meu conhecimento, desenvolvimento e projetos criativos, espero ajudar muitas pessoas com essas coisas e aprender novos conhecimentos.
+## Rodando localmente
 
-![PHP](https://img.shields.io/badge/-PHP-333333?style=flat&logo=PHP)
-![Laravel](https://img.shields.io/badge/-Laravel-333333?style=flat&logo=Laravel)
-![Postgresql](https://img.shields.io/badge/-Postgresql-333333?style=flat&logo=Postgresql)
-![MySql](https://img.shields.io/badge/-MySql-333333?style=flat&logo=MySql)
-![HTML5](https://img.shields.io/badge/-HTML5-333333?style=flat&logo=HTML5)
-![CSS](https://img.shields.io/badge/-CSS-333333?style=flat&logo=CSS3&logoColor=1572B6)
-![JavaScript](https://img.shields.io/badge/-JavaScript-333333?style=flat&logo=javascript)
-![TypeScript](https://img.shields.io/badge/-Typescript-333333?style=flat&logo=typescript)
-![Java](https://img.shields.io/badge/-Java-333333?style=flat&logo=Java)
-![Angular](https://img.shields.io/badge/-Angular-333333?style=flat&logo=Angular)
-![Git](https://img.shields.io/badge/-Git-333333?style=flat&logo=git)
-![GitHub](https://img.shields.io/badge/-GitHub-333333?style=flat&logo=github)
-![Visual Studio Code](https://img.shields.io/badge/-Visual%20Studio%20Code-333333?style=flat&logo=visual-studio-code&logoColor=007ACC)
+```bash
+npm install
+npm run dev
+```
 
-### Contato - Contact 👍
+## Scripts
 
-<p align="left">
-  <a href="https://www.linkedin.com/in/thiago-gon%C3%A7alves-santos-730a74199/" title="LinkedIn">
-  <img src="https://img.shields.io/badge/-Linkedin-0e76a8?style=flat-square&logo=Linkedin&logoColor=white&link=https://www.linkedin.com/in/thiago-gon%C3%A7alves-santos-730a74199/" alt="LinkedIn"/></a>
-</p>
+| Comando               | O que faz                                          |
+| ---------------------- | --------------------------------------------------- |
+| `npm run dev`          | Servidor de desenvolvimento                          |
+| `npm run build`        | Build estático em `docs/` (servido pelo GitHub Pages) |
+| `npm run preview`      | Serve o build de `docs/` localmente                  |
+| `npm run resume:pdf`   | Regenera `public/curriculo.pdf` a partir de `src/data/resume.ts` |
+| `npm run resume:docx`  | Regenera `public/curriculo.docx`                     |
+
+## Estrutura
+
+- `src/data/resume.ts` — fonte única de verdade do conteúdo do currículo (usada pela página e pelos geradores de PDF/DOCX).
+- `src/pages/index.astro` — página principal.
+- `src/lib/github.ts` — busca projetos em destaque via API pública do GitHub (repositórios com a topic `portfolio`).
+- `docs/` — build estático, gerado automaticamente. Não editar na mão.
+
+## Contato
+
+[LinkedIn](https://www.linkedin.com/in/thiago-gon%C3%A7alves-santos-730a74199/) · [GitHub](https://github.com/thiago662) · thiago1santos12@gmail.com
