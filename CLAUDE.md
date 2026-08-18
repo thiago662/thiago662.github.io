@@ -26,3 +26,5 @@ Site de portfólio pessoal (Thiago Gonçalves Santos), em Astro. Repositório ta
 ## Currículo em texto corrido
 
 `curriculo.md`, na raiz, é a versão em prosa do currículo (pra colar direto em processo seletivo/ATS ou mandar por e-mail). É mantido manualmente em paralelo a `src/data/resume.ts` — ao mudar um, revisar se o outro precisa do mesmo ajuste.
+
+`curriculo-atual.md` é uma variante do mesmo texto sem citar o nome do cliente atual (menciona só "cliente sob NDA"), pra uso quando o acordo de confidencialidade impede citar a empresa. Ao atualizar `curriculo.md`, replicar o mesmo ajuste aqui (exceto a parte do nome do cliente/projetos, que é deliberadamente diferente).
