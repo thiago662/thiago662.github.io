@@ -30,7 +30,7 @@ npm run dev
 
 - `src/data/resume.ts` — fonte única de verdade do conteúdo do currículo (usada pela página e pelos geradores de PDF/DOCX).
 - `src/pages/index.astro` — página principal.
-- `src/lib/github.ts` — busca projetos em destaque via API pública do GitHub (repositórios com a topic `portfolio`).
+- `src/lib/github.ts` — busca projetos em destaque via API pública do GitHub (repositórios com a topic `starred`).
 - `docs/` — build estático, gerado automaticamente. Não editar na mão.
 
 ## Contato

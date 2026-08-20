@@ -17,6 +17,18 @@ export interface Education {
   period: string;
 }
 
+const CAREER_START = new Date(2020, 7, 1); // estágio na DealerSpace/Followize, ago/2020
+
+function fullYearsSince(start: Date, now = new Date()): number {
+  let years = now.getFullYear() - start.getFullYear();
+  const beforeAnniversary =
+    now.getMonth() < start.getMonth() ||
+    (now.getMonth() === start.getMonth() && now.getDate() < start.getDate());
+  return beforeAnniversary ? years - 1 : years;
+}
+
+const totalYears = fullYearsSince(CAREER_START);
+
 export const resume = {
   name: 'Thiago Gonçalves Santos',
   title: 'Desenvolvedor Full Stack Sênior (Especialista em Back-end)',
@@ -27,7 +39,7 @@ export const resume = {
     github: 'https://github.com/thiago662',
   },
   summary:
-    'Desenvolvedor full stack sênior com 5 anos e 8 meses de experiência na DealerSpace (ex-Followize), atuando com PHP, Laravel, Angular e integrações de sistemas, com liderança técnica da squad de integrações da empresa. Atualmente presta serviços como PJ para cliente do setor de CRM sob acordo de confidencialidade, via CNPJ próprio (Tgs Code Solutions). Está aberto a novas oportunidades, inclusive fora do setor de CRM automotivo, aplicando a mesma base sólida de arquitetura, integrações e boas práticas de engenharia em outros mercados.',
+    `Desenvolvedor full stack sênior atuando na área desde 2020 (mais de ${totalYears} anos de experiência profissional), majoritariamente na DealerSpace (ex-Followize, 5 anos e 8 meses), atuando com PHP, Laravel, Angular e integrações de sistemas, com liderança técnica da squad de integrações da empresa. Atualmente presta serviços como PJ para cliente do setor de CRM sob acordo de confidencialidade, via CNPJ próprio (Tgs Code Solutions). Está aberto a novas oportunidades, inclusive fora do setor de CRM automotivo, aplicando a mesma base sólida de arquitetura, integrações e boas práticas de engenharia em outros mercados.`,
   experience: [
     {
       company: 'Cliente sob NDA',

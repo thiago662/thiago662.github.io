@@ -4,7 +4,7 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## O que é
 
-Site de portfólio pessoal (Thiago Gonçalves Santos), em Astro. Repositório também é o repo especial de perfil do GitHub (`README.md` na raiz aparece em github.com/thiago662) — por isso README do perfil e código do site convivem no mesmo lugar.
+Site de portfólio pessoal (Thiago Gonçalves Santos), em Astro. Repositório também é o repo especial de perfil do GitHub (nome bate com o usuário, `thiago662/thiago662.github.io`), mas o `README.md` na raiz documenta o projeto normalmente — não é mais usado como bio de perfil.
 
 ## Comandos
 
@@ -19,7 +19,7 @@ Site de portfólio pessoal (Thiago Gonçalves Santos), em Astro. Repositório ta
 - **`docs/` é o diretório de build, não código-fonte.** GitHub Pages deste repo serve a partir de `/docs` (não há GitHub Actions configurado) — por isso `astro.config.mjs` define `outDir: 'docs'` em vez do padrão `dist/`. Não editar arquivos em `docs/` na mão, eles são sobrescritos a cada build.
 - **`src/data/resume.ts`** é a fonte única de verdade do conteúdo do currículo — dados tipados (experiência, formação, skills, idiomas, contato). Tanto a página (`src/pages/index.astro`) quanto os dois scripts geradores (`scripts/generate-resume-pdf.mjs`, `scripts/generate-resume-docx.mjs`) leem desse mesmo arquivo. Ao atualizar currículo, editar só esse arquivo — os PDFs/Word e o site refletem a partir dele.
 - **Scripts de geração de currículo** (`scripts/*.mjs`) rodam com Node nativo importando `resume.ts` diretamente (Node 22+ faz type-stripping de TypeScript sem build step) — não precisam de `ts-node` nem de compilação prévia.
-- **Projetos em destaque no site vêm da API pública de busca do GitHub** (`src/lib/github.ts`), filtrando repositórios do usuário `thiago662` pela topic `portfolio` (sem token/autenticação — endpoint de busca é público). Pra um projeto aparecer na seção "Projetos", adicionar a topic `portfolio` a ele em GitHub → repositório → engrenagem do "About" → Topics. Se o repo também tiver o campo `homepage` preenchido no GitHub, aparece um link "Ver ao vivo" além do link pro código-fonte.
+- **Projetos em destaque no site vêm da API pública de busca do GitHub** (`src/lib/github.ts`), filtrando repositórios do usuário `thiago662` pela topic `starred` (sem token/autenticação — endpoint de busca é público). Pra um projeto aparecer na seção "Projetos", adicionar a topic `starred` a ele em GitHub → repositório → engrenagem do "About" → Topics. Se o repo também tiver o campo `homepage` preenchido no GitHub, aparece um link "Ver ao vivo" além do link pro código-fonte.
 - **Open Graph/meta tags** ficam centralizadas em `src/layouts/Layout.astro`, recebendo `title`/`description`/`image` por página.
 - Este projeto substituiu uma versão anterior em Angular 17 (histórico preservado no git log). Não há mais SSR/Express/roteamento — é geração estática pura.
 

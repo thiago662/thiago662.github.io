@@ -6,7 +6,7 @@ thiago1santos12@gmail.com | [linkedin.com/in/thiago-gonçalves-santos-730a74199]
 
 ## Resumo
 
-Desenvolvedor full stack sênior com 5 anos e 8 meses de experiência na DealerSpace (ex-Followize), atuando com PHP, Laravel, Angular e integrações de sistemas, com liderança técnica da squad de integrações da empresa. Atualmente presta serviços como PJ para cliente do setor de CRM sob acordo de confidencialidade, via CNPJ próprio (Tgs Code Solutions). Está aberto a novas oportunidades, inclusive fora do setor de CRM automotivo, aplicando a mesma base sólida de arquitetura, integrações e boas práticas de engenharia em outros mercados.
+Desenvolvedor full stack sênior atuando na área desde 2020 (mais de 6 anos de experiência profissional), majoritariamente na DealerSpace (ex-Followize, 5 anos e 8 meses), atuando com PHP, Laravel, Angular e integrações de sistemas, com liderança técnica da squad de integrações da empresa. Atualmente presta serviços como PJ para cliente do setor de CRM sob acordo de confidencialidade, via CNPJ próprio (Tgs Code Solutions). Está aberto a novas oportunidades, inclusive fora do setor de CRM automotivo, aplicando a mesma base sólida de arquitetura, integrações e boas práticas de engenharia em outros mercados.
 
 ## Experiência Profissional
 
