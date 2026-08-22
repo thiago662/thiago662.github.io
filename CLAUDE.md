@@ -28,3 +28,5 @@ Site de portfólio pessoal (Thiago Gonçalves Santos), em Astro. Repositório ta
 `curriculo.md`, na raiz, é a versão em prosa do currículo (pra colar direto em processo seletivo/ATS ou mandar por e-mail). É mantido manualmente em paralelo a `src/data/resume.ts` — ao mudar um, revisar se o outro precisa do mesmo ajuste.
 
 `curriculo-atual.md` é uma variante do mesmo texto sem citar o nome do cliente atual (menciona só "cliente sob NDA"), pra uso quando o acordo de confidencialidade impede citar a empresa. Ao atualizar `curriculo.md`, replicar o mesmo ajuste aqui (exceto a parte do nome do cliente/projetos, que é deliberadamente diferente).
+
+`carta-apresentacao.md` é uma carta de apresentação genérica (não vinculada a nenhuma vaga específica), mantida como arquivo interno do repositório. `carta-apresentacao.pdf`/`.docx`, também na raiz (não em `public/`), são cópias formatadas geradas manualmente a partir do mesmo texto — ficam fora de `public/`/`docs/` de propósito, então não são servidas pelo GitHub Pages nem aparecem pra download no site. Se o texto da carta mudar, regenerar essas cópias na mão (não há script fixo no `package.json` pra isso, é geração pontual).
