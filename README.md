@@ -21,8 +21,8 @@ npm run dev
 | Comando               | O que faz                                          |
 | ---------------------- | --------------------------------------------------- |
 | `npm run dev`          | Servidor de desenvolvimento                          |
-| `npm run build`        | Build estático em `docs/` (servido pelo GitHub Pages) |
-| `npm run preview`      | Serve o build de `docs/` localmente                  |
+| `npm run build`        | Build estático em `dist/` (deploy via GitHub Actions) |
+| `npm run preview`      | Serve o build de `dist/` localmente                  |
 | `npm run resume:pdf`   | Regenera `public/curriculo.pdf` a partir de `src/data/resume.ts` |
 | `npm run resume:docx`  | Regenera `public/curriculo.docx`                     |
 
@@ -31,7 +31,7 @@ npm run dev
 - `src/data/resume.ts` — fonte única de verdade do conteúdo do currículo (usada pela página e pelos geradores de PDF/DOCX).
 - `src/pages/index.astro` — página principal.
 - `src/lib/github.ts` — busca projetos em destaque via API pública do GitHub (repositórios com a topic `starred`).
-- `docs/` — build estático, gerado automaticamente. Não editar na mão.
+- `.github/workflows/deploy.yml` — build e deploy no GitHub Pages a cada push em `main`, todo dia às 06:00 UTC (pega projetos novos) e manualmente pela aba Actions.
 
 ## Contato
 

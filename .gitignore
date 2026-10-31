@@ -1,6 +1,9 @@
 # generated types
 .astro/
 
+# build output
+dist/
+
 # dependencies
 node_modules/
 
@@ -20,3 +23,6 @@ pnpm-debug.log*
 
 # jetbrains setting folder
 .idea/
+
+# currículo da mãe (pessoal, não commitar)
+mãe/
