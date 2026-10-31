@@ -78,7 +78,7 @@ export const resume = {
   languages: [{ name: 'Inglês', level: 'nível básico (leitura, escrita e conversação)' }],
   skills: {
     Linguagens: ['PHP', 'JavaScript', 'TypeScript'],
-    'Back-end': ['Laravel', 'Filament'],
+    'Back-end': ['Laravel', 'Filament', 'Node.js'],
     'Front-end': ['Angular'],
     'Banco de dados': ['PostgreSQL', 'SQL'],
     Integrações: ['APIs REST', 'filas', 'web scraping', 'leitura de e-mails'],
